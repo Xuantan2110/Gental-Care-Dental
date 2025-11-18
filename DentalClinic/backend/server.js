@@ -24,9 +24,12 @@ const initSocket = require("./config/socket");
 
 const app = express();
 app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true
-}))
+  origin: [
+    "http://localhost:3000",                    
+    "https://gental-care-dental-1.onrender.com" 
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
