@@ -15,8 +15,8 @@ const QrModal = ({ isOpen, onClose, billId, selectedPromotion }) => {
     const fetchPaymentData = useCallback(async () => {
         try {
             const url = selectedPromotion
-                ? `http://localhost:5000/bankTranfer/bank-transfer/${billId}/${selectedPromotion}`
-                : `http://localhost:5000/bankTranfer/bank-transfer/${billId}`;
+                ? `https://gental-care-dental.onrender.com/bankTranfer/bank-transfer/${billId}/${selectedPromotion}`
+                : `https://gental-care-dental.onrender.com/bankTranfer/bank-transfer/${billId}`;
 
             const res = await axios.get(url, {
                 headers: {

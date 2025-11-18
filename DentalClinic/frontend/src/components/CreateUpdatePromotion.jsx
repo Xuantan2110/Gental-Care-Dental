@@ -70,14 +70,14 @@ const CreateUpdatePromotion = ({ isOpen, onClose, onSuccess, mode, promotion, op
 
       if (mode === 'create') {
         await axios.post(
-          'http://localhost:5000/promotion/create-promotion',
+          'https://gental-care-dental.onrender.com/promotion/create-promotion',
           payload,
           { headers: token ? { Authorization: `Bearer ${token}` } : {} }
         );
         openNotification?.('success', 'Promotion created successfully.');
       } else {
         await axios.put(
-          `http://localhost:5000/promotion/update-promotion/${promotion?._id}`,
+          `https://gental-care-dental.onrender.com/promotion/update-promotion/${promotion?._id}`,
           payload,
           { headers: token ? { Authorization: `Bearer ${token}` } : {} }
         );

@@ -40,7 +40,7 @@ const Messenger = () => {
   useEffect(() => {
     const fetchConversations = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/conversation/all-conversation", {
+        const res = await axios.get("https://gental-care-dental.onrender.com/conversation/all-conversation", {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         const conversations = res.data.conversations || [];
@@ -59,7 +59,7 @@ const Messenger = () => {
 
   const fetchMessages = useCallback(async (conversationId) => {
     try {
-      const res = await axios.get(`http://localhost:5000/message/conversation/${conversationId}`, {
+      const res = await axios.get(`https://gental-care-dental.onrender.com/message/conversation/${conversationId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setMessages(res.data.messages || []);
@@ -71,7 +71,7 @@ const Messenger = () => {
   const markMessagesAsRead = useCallback(async (conversationId) => {
     if (!conversationId) return;
     try {
-      await axios.put(`http://localhost:5000/message/mark-read/${conversationId}`, {}, {
+      await axios.put(`https://gental-care-dental.onrender.com/message/mark-read/${conversationId}`, {}, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
 
@@ -99,7 +99,7 @@ const Messenger = () => {
   const handleSendMessage = async () => {
     if (messageInput.trim() && selectedChat) {
       try {
-        await axios.post("http://localhost:5000/message/send-message", {
+        await axios.post("https://gental-care-dental.onrender.com/message/send-message", {
           content: messageInput,
           conversationId: selectedChat,
         }, {
@@ -118,7 +118,7 @@ const Messenger = () => {
 
   useEffect(() => {
     if (!socketRef.current) {
-      socketRef.current = io("http://localhost:5000", {
+      socketRef.current = io("https://gental-care-dental.onrender.com", {
         auth: { token: localStorage.getItem("token") },
       });
     }

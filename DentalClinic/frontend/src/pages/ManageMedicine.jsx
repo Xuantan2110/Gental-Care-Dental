@@ -65,7 +65,7 @@ const ManageMedicine = () => {
 
     const fetchCategories = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/medicineCategory/get-medicine-categories`);
+            const res = await axios.get(`https://gental-care-dental.onrender.com/medicineCategory/get-medicine-categories`);
             setCategories(res.data?.categories || []);
         } catch (e) {
             console.error(e);
@@ -75,7 +75,7 @@ const ManageMedicine = () => {
 
     const fetchMedicines = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/medicine/get-medicines`);
+            const res = await axios.get(`https://gental-care-dental.onrender.com/medicine/get-medicines`);
             setMedicines(res.data?.medicines || []);
         } catch (e) {
             console.error(e);
@@ -148,13 +148,13 @@ const ManageMedicine = () => {
             };
 
             if (modalType === 'add') {
-                await axios.post(`http://localhost:5000/medicine/create-medicine`, payload, {
+                await axios.post(`https://gental-care-dental.onrender.com/medicine/create-medicine`, payload, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 });
             } else {
-                await axios.put(`http://localhost:5000/medicine/update-medicine/${currentItem._id}`, payload, {
+                await axios.put(`https://gental-care-dental.onrender.com/medicine/update-medicine/${currentItem._id}`, payload, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -179,13 +179,13 @@ const ManageMedicine = () => {
         try {
             const payload = { name: categoryForm.name.trim() };
             if (modalType === 'add') {
-                await axios.post(`http://localhost:5000/medicineCategory/create-medicine-category`, payload, {
+                await axios.post(`https://gental-care-dental.onrender.com/medicineCategory/create-medicine-category`, payload, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 });
             } else {
-                await axios.put(`http://localhost:5000/medicineCategory/update-medicine-category/${currentItem._id}`, payload, {
+                await axios.put(`https://gental-care-dental.onrender.com/medicineCategory/update-medicine-category/${currentItem._id}`, payload, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -208,7 +208,7 @@ const ManageMedicine = () => {
         try {
             if (activeTab === 'medicine') {
                 await axios.delete(
-                    `http://localhost:5000/medicine/delete-medicine/${id}`,
+                    `https://gental-care-dental.onrender.com/medicine/delete-medicine/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -219,7 +219,7 @@ const ManageMedicine = () => {
                 openNotification("success", "Medicine deleted successfully.");
             } else {
                 await axios.delete(
-                    `http://localhost:5000/medicineCategory/delete-medicine-category/${id}`,
+                    `https://gental-care-dental.onrender.com/medicineCategory/delete-medicine-category/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,

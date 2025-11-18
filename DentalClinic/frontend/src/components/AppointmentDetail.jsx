@@ -15,7 +15,7 @@ const AppointmentDetail = ({ appointmentId, isOpen, onClose }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        `http://localhost:5000/appointment/get-appointment/${appointmentId}`,
+        `https://gental-care-dental.onrender.com/appointment/get-appointment/${appointmentId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setData(response?.data?.data ?? null);

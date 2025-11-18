@@ -39,7 +39,7 @@ const Review = () => {
 
     const fetchReviews = useCallback(async () => {
         try {
-            const response = await axios.get('http://localhost:5000/review/get-all-reviews', {
+            const response = await axios.get('https://gental-care-dental.onrender.com/review/get-all-reviews', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -107,7 +107,7 @@ const Review = () => {
     };
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/review/delete-review/${id}`, {
+        axios.delete(`https://gental-care-dental.onrender.com/review/delete-review/${id}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             },

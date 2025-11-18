@@ -108,7 +108,7 @@ function UserProfile({ isOpen, onClose, userId }) {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        `http://localhost:5000/user/get-user/${userId}`,
+        `https://gental-care-dental.onrender.com/user/get-user/${userId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

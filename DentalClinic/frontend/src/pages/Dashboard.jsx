@@ -74,7 +74,7 @@ function Dashboard() {
             const dateToUse = appointmentDate || new Date();
             params.append('date', dayjs(dateToUse).format('YYYY-MM-DD'));
             
-            const res = await axios.get(`http://localhost:5000/dashboard/appointment-stats?${params}`, { headers });
+            const res = await axios.get(`https://gental-care-dental.onrender.com/dashboard/appointment-stats?${params}`, { headers });
             setAppointmentStats(res.data.data);
         } catch (error) {
             console.error('Error fetching appointment stats:', error);
@@ -94,7 +94,7 @@ function Dashboard() {
             const dateToUse = serviceDate || new Date();
             params.append('date', dayjs(dateToUse).format('YYYY-MM-DD'));
             
-            const res = await axios.get(`http://localhost:5000/dashboard/service-usage-stats?${params}`, { headers });
+            const res = await axios.get(`https://gental-care-dental.onrender.com/dashboard/service-usage-stats?${params}`, { headers });
             setServiceUsage(res.data.data);
         } catch (error) {
             console.error('Error fetching service usage stats:', error);
@@ -114,7 +114,7 @@ function Dashboard() {
             const dateToUse = revenueDate || new Date();
             params.append('date', dayjs(dateToUse).format('YYYY-MM-DD'));
             
-            const res = await axios.get(`http://localhost:5000/dashboard/revenue-stats?${params}`, { headers });
+            const res = await axios.get(`https://gental-care-dental.onrender.com/dashboard/revenue-stats?${params}`, { headers });
             setRevenueStats({
                 totalRevenue: res.data.totalRevenue,
                 data: res.data.data
@@ -145,7 +145,7 @@ function Dashboard() {
         const headers = { Authorization: `Bearer ${token}` };
         
         try {
-            const res = await axios.get('http://localhost:5000/dashboard/quick-metrics', { headers });
+            const res = await axios.get('https://gental-care-dental.onrender.com/dashboard/quick-metrics', { headers });
             setQuickMetrics(res.data.data);
         } catch (error) {
             console.error('Error fetching quick metrics:', error);

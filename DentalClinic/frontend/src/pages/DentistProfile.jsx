@@ -25,7 +25,7 @@ const DentistProfile = () => {
     const token = localStorage.getItem("token");
 
     useEffect(() => {
-        axios.get("http://localhost:5000/user/get-all-dentist", {
+        axios.get("https://gental-care-dental.onrender.com/user/get-all-dentist", {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(res => {
@@ -58,7 +58,7 @@ const DentistProfile = () => {
         setSelectedDentist(dentist);
         setIsCreating(false);
 
-        axios.get(`http://localhost:5000/dentistProfile/get-dentist-profile/${dentist._id}`, {
+        axios.get(`https://gental-care-dental.onrender.com/dentistProfile/get-dentist-profile/${dentist._id}`, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(res => {
@@ -90,7 +90,7 @@ const DentistProfile = () => {
     };
 
     const handleCreate = () => {
-        axios.post("http://localhost:5000/dentistProfile/create-dentist-profile",
+        axios.post("https://gental-care-dental.onrender.com/dentistProfile/create-dentist-profile",
             {
                 dentistId: selectedDentist._id,
                 ...formData
@@ -109,7 +109,7 @@ const DentistProfile = () => {
 
     const handleUpdate = () => {
         axios.put(
-            `http://localhost:5000/dentistProfile/update-dentist-profile/${selectedDentist._id}`,
+            `https://gental-care-dental.onrender.com/dentistProfile/update-dentist-profile/${selectedDentist._id}`,
             formData,
             { headers: { Authorization: `Bearer ${token}` } }
         )
@@ -124,7 +124,7 @@ const DentistProfile = () => {
 
     const handleDelete = () => {
         axios.delete(
-            `http://localhost:5000/dentistProfile/delete-dentist-profile/${selectedDentist._id}`,
+            `https://gental-care-dental.onrender.com/dentistProfile/delete-dentist-profile/${selectedDentist._id}`,
             { headers: { Authorization: `Bearer ${token}` } }
         )
             .then(() => {

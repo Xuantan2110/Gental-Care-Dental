@@ -49,7 +49,7 @@ const BillDetail = ({ isOpen, billId, onClose }) => {
         setLoading(true);
         setErrMsg('');
         const token = localStorage.getItem('token');
-        const res = await axios.get(`http://localhost:5000/bill/get-bill/${billId}`, {
+        const res = await axios.get(`https://gental-care-dental.onrender.com/bill/get-bill/${billId}`, {
           headers: token ? { Authorization: `Bearer ${token}` } : {},
         });
         const b = res.data?.bill || null;

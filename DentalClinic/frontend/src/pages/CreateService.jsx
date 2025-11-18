@@ -23,7 +23,7 @@ function CreateService({ isOpen, onClose, onSuccess, openNotification }) {
     
     try {
       const token = localStorage.getItem('token');
-      await axios.post("http://localhost:5000/service/create-service", formData,
+      await axios.post("https://gental-care-dental.onrender.com/service/create-service", formData,
         {
           headers: {
             "Content-Type": "application/json",

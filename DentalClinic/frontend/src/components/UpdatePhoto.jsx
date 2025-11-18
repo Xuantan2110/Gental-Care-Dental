@@ -76,7 +76,7 @@ function UpdatePhoto({ isOpen, onClose, currentPhoto, openNotification, onSucces
 
         try {
             const token = localStorage.getItem('token');
-            const res = await axios.patch('http://localhost:5000/user/update-photo', formData, {
+            const res = await axios.patch('https://gental-care-dental.onrender.com/user/update-photo', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`

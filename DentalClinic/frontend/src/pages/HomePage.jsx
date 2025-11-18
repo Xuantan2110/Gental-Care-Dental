@@ -61,10 +61,10 @@ function HomePage() {
     const decoded = jwtDecode(token);
     setCurrentUserId(decoded.userId);
     Promise.all([
-      axios.get("http://localhost:5000/dentistProfile/get-all-dentist-profile", {
+      axios.get("https://gental-care-dental.onrender.com/dentistProfile/get-all-dentist-profile", {
         headers: { Authorization: `Bearer ${token}` },
       }),
-      axios.get("http://localhost:5000/review/get-highlight-reviews", {
+      axios.get("https://gental-care-dental.onrender.com/review/get-highlight-reviews", {
         headers: { Authorization: `Bearer ${token}` },
       })
     ])

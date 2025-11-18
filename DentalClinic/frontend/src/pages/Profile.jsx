@@ -45,13 +45,13 @@ function Profile() {
     useEffect(() => {
         const token = localStorage.getItem("token");
         Promise.all([
-            axios.get("http://localhost:5000/medicalRecord/get-medical-record-by-customer", {
+            axios.get("https://gental-care-dental.onrender.com/medicalRecord/get-medical-record-by-customer", {
                 headers: { Authorization: `Bearer ${token}` },
             }),
-            axios.get("http://localhost:5000/appointment/get-appointments-by-customer", {
+            axios.get("https://gental-care-dental.onrender.com/appointment/get-appointments-by-customer", {
                 headers: { Authorization: `Bearer ${token}` },
             }),
-            axios.get("http://localhost:5000/bill/get-bills-by-customer", {
+            axios.get("https://gental-care-dental.onrender.com/bill/get-bills-by-customer", {
                 headers: { Authorization: `Bearer ${token}` },
             })
         ])
@@ -72,7 +72,7 @@ function Profile() {
     const fetchProfile = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://localhost:5000/user/profile`, {
+            const response = await axios.get(`https://gental-care-dental.onrender.com/user/profile`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

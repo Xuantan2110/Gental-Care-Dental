@@ -78,7 +78,7 @@ const MedicalRecord = () => {
 
             const token = localStorage.getItem("token");
             const res = await axios.get(
-                "http://localhost:5000/medicalRecord/get-basic-medical-records",
+                "https://gental-care-dental.onrender.com/medicalRecord/get-basic-medical-records",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -104,7 +104,7 @@ const MedicalRecord = () => {
         const token = localStorage.getItem('token');
         if (!token) return;
 
-        const socket = io('http://localhost:5000', {
+        const socket = io('https://gental-care-dental.onrender.com', {
             auth: { token },
         });
 
@@ -170,7 +170,7 @@ const MedicalRecord = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/medicalRecord/delete-medical-record/${id}`, {
+            await axios.delete(`https://gental-care-dental.onrender.com/medicalRecord/delete-medical-record/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

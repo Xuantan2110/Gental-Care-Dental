@@ -57,7 +57,7 @@ const DentistWorkingTime = () => {
     const fetchDentistWorkingTimes = async () => {
         try {
             const token = localStorage.getItem('token');
-            const res = await axios.get("http://localhost:5000/dentistWorkingTime/get-all-dentist-working-time",
+            const res = await axios.get("https://gental-care-dental.onrender.com/dentistWorkingTime/get-all-dentist-working-time",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -74,7 +74,7 @@ const DentistWorkingTime = () => {
     const handleDelete = async (scheduleToDelete) => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://localhost:5000/dentistWorkingTime/delete-dentist-working-time/${scheduleToDelete._id}`, {
+            await axios.delete(`https://gental-care-dental.onrender.com/dentistWorkingTime/delete-dentist-working-time/${scheduleToDelete._id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

@@ -14,7 +14,7 @@ const CreateMedicalRecord = ({ isOpen, onClose, onSuccess, openNotification }) =
 
         const token = localStorage.getItem("token");
         axios
-            .get("http://localhost:5000/user/get-all-customer", {
+            .get("https://gental-care-dental.onrender.com/user/get-all-customer", {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((res) => setCustomers(res.data.customers || []))
@@ -38,7 +38,7 @@ const CreateMedicalRecord = ({ isOpen, onClose, onSuccess, openNotification }) =
         try {
             const token = localStorage.getItem("token");
             await axios.post(
-                "http://localhost:5000/medicalRecord/create-medical-record",
+                "https://gental-care-dental.onrender.com/medicalRecord/create-medical-record",
                 { customerId: selectedCustomer._id },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

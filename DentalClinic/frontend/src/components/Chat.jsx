@@ -19,7 +19,7 @@ function Chat({ isOpen, onToggle, isOtherOpen }) {
   // Kết nối socket khi mở chat
   useEffect(() => {
     if (isOpen) {
-      const newSocket = io("http://localhost:5000", {
+      const newSocket = io("https://gental-care-dental.onrender.com", {
         auth: {
           token: localStorage.getItem("token"), // JWT token
         },
@@ -47,7 +47,7 @@ function Chat({ isOpen, onToggle, isOtherOpen }) {
   useEffect(() => {
     if (isOpen) {
       axios
-        .get("http://localhost:5000/conversation/my-conversation", {
+        .get("https://gental-care-dental.onrender.com/conversation/my-conversation", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((res) => {
@@ -56,7 +56,7 @@ function Chat({ isOpen, onToggle, isOtherOpen }) {
 
             // lấy toàn bộ messages
             return axios.get(
-              `http://localhost:5000/message/conversation/${res.data.conversation._id}`,
+              `https://gental-care-dental.onrender.com/message/conversation/${res.data.conversation._id}`,
               {
                 headers: {
                   Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -81,7 +81,7 @@ function Chat({ isOpen, onToggle, isOtherOpen }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/message/send-message",
+        "https://gental-care-dental.onrender.com/message/send-message",
         { content: input, conversationId },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

@@ -81,10 +81,10 @@ const Appointment = () => {
 
     try {
       if (decoded.role === 'Dentist') {
-        const res = await axios.get('http://localhost:5000/appointment/get-appointments-by-dentist', { headers });
+        const res = await axios.get('https://gental-care-dental.onrender.com/appointment/get-appointments-by-dentist', { headers });
         setAppointments(res.data?.data || []);
       } else {
-        const res = await axios.get('http://localhost:5000/appointment/get-all-appointments', { headers });
+        const res = await axios.get('https://gental-care-dental.onrender.com/appointment/get-all-appointments', { headers });
         setAppointments(res.data?.data || []);
       }
     } catch (error) {
@@ -102,7 +102,7 @@ const Appointment = () => {
     if (!token) return;
 
     // Connect to socket
-    socketRef.current = io("http://localhost:5000", {
+    socketRef.current = io("https://gental-care-dental.onrender.com", {
       auth: { token }
     });
 
@@ -158,7 +158,7 @@ const Appointment = () => {
 
   const handleConfirm = async (id) => {
     try {
-      await axios.patch(`http://localhost:5000/appointment/confirm-appointment/${id}`, { status: 'confirmed' }, {
+      await axios.patch(`https://gental-care-dental.onrender.com/appointment/confirm-appointment/${id}`, { status: 'confirmed' }, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -190,7 +190,7 @@ const Appointment = () => {
   const handleRejectSubmit = async () => {
     try {
       await axios.patch(
-        `http://localhost:5000/appointment/reject-appointment/${appointmentToReject._id}`,
+        `https://gental-care-dental.onrender.com/appointment/reject-appointment/${appointmentToReject._id}`,
         {
           status: 'rejected',
           reason: rejectReason,
@@ -219,7 +219,7 @@ const Appointment = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/appointment/delete-appointment/${id}`, {
+      await axios.delete(`https://gental-care-dental.onrender.com/appointment/delete-appointment/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -241,7 +241,7 @@ const Appointment = () => {
       };
 
       const res = await axios.post(
-        'http://localhost:5000/medicalRecord/create-medical-record',
+        'https://gental-care-dental.onrender.com/medicalRecord/create-medical-record',
         payload,
         {
           headers: {

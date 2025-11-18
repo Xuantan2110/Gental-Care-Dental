@@ -17,7 +17,7 @@ function Login() {
     setIsLoading(true);
     setError("");
     try {
-      const res = await axios.post('http://localhost:5000/auth/login', { email, password });
+      const res = await axios.post('https://gental-care-dental.onrender.com/auth/login', { email, password });
       const { token, user } = res.data;
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));

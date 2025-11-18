@@ -79,7 +79,7 @@ function Sidebar() {
     const fetchPforile = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://localhost:5000/user/profile`, {
+            const response = await axios.get(`https://gental-care-dental.onrender.com/user/profile`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -96,7 +96,7 @@ function Sidebar() {
             const token = localStorage.getItem('token');
             if (!token) return;
             
-            const response = await axios.get('http://localhost:5000/notification/notifications/unread-count', {
+            const response = await axios.get('https://gental-care-dental.onrender.com/notification/notifications/unread-count', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setUnreadCount(response.data.unreadCount || 0);
@@ -116,7 +116,7 @@ function Sidebar() {
         const token = localStorage.getItem('token');
         if (!token || !user || (user.role !== 'Staff' && user.role !== 'Dentist')) return;
 
-        const socket = io('http://localhost:5000', {
+        const socket = io('https://gental-care-dental.onrender.com', {
             auth: { token },
         });
 

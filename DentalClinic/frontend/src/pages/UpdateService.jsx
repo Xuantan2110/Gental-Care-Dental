@@ -36,7 +36,7 @@ function UpdateService({ isOpenUpdate, onClose, onSuccess, service, openNotifica
     
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/service/update-service/${service._id}`, formData,
+      await axios.put(`https://gental-care-dental.onrender.com/service/update-service/${service._id}`, formData,
         {
           headers: {
             "Content-Type": "application/json",

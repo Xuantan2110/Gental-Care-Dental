@@ -40,7 +40,7 @@ const Notification = () => {
         try {
             setLoading(true);
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5000/notification/notifications', {
+            const response = await axios.get('https://gental-care-dental.onrender.com/notification/notifications', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setNotifications(response.data.notifications || []);
@@ -55,7 +55,7 @@ const Notification = () => {
     const fetchUnreadCount = useCallback(async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5000/notification/notifications/unread-count', {
+            const response = await axios.get('https://gental-care-dental.onrender.com/notification/notifications/unread-count', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setUnreadCount(response.data.unreadCount || 0);
@@ -74,7 +74,7 @@ const Notification = () => {
         const token = localStorage.getItem('token');
         if (!token) return;
 
-        const socket = io('http://localhost:5000', {
+        const socket = io('https://gental-care-dental.onrender.com', {
             auth: { token },
         });
 
@@ -121,7 +121,7 @@ const Notification = () => {
     const handleMarkAsRead = async (id) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.patch(`http://localhost:5000/notification/notifications/${id}/read`, {}, {
+            await axios.patch(`https://gental-care-dental.onrender.com/notification/notifications/${id}/read`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setNotifications(prev =>
@@ -141,7 +141,7 @@ const Notification = () => {
     const handleMarkAllAsRead = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.patch('http://localhost:5000/notification/notifications/read-all', {}, {
+            await axios.patch('https://gental-care-dental.onrender.com/notification/notifications/read-all', {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setNotifications(prev =>
@@ -160,7 +160,7 @@ const Notification = () => {
     const handleDelete = async (id) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/notification/notifications/${id}`, {
+            await axios.delete(`https://gental-care-dental.onrender.com/notification/notifications/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setNotifications(prev => prev.filter(notif => notif._id !== id));

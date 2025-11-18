@@ -67,7 +67,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post("http://localhost:5000/auth/request-otp", { email });
+            const res = await axios.post("https://gental-care-dental.onrender.com/auth/request-otp", { email });
             setLoading(false);
             setCurrentStep("otp");
             setCountdown(60);
@@ -85,7 +85,7 @@ const ForgotPassword = () => {
         if (countdown > 0) return;
         try {
             setLoading(true);
-            const res = await axios.post("http://localhost:5000/auth/request-otp", { email });
+            const res = await axios.post("https://gental-care-dental.onrender.com/auth/request-otp", { email });
 
             setLoading(false);
             setCountdown(60);
@@ -102,7 +102,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post("http://localhost:5000/auth/verify-otp", { email, otp });
+            const res = await axios.post("https://gental-care-dental.onrender.com/auth/verify-otp", { email, otp });
 
             setLoading(false);
             setCurrentStep("password");
@@ -118,7 +118,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post("http://localhost:5000/auth/reset-password", {
+            const res = await axios.post("https://gental-care-dental.onrender.com/auth/reset-password", {
                 email,
                 newPassword,
                 confirmNewPassword,

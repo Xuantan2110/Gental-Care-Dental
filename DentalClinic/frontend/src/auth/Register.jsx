@@ -89,7 +89,7 @@ function Register() {
         setIsLoading(true);
         
         try {
-            await axios.post('http://localhost:5000/user/register', formData);
+            await axios.post('https://gental-care-dental.onrender.com/user/register', formData);
             openNotification("success");
             setFormData({
                 fullName: '',

@@ -46,7 +46,7 @@ const Promotion = () => {
             setError('');
 
             const token = localStorage.getItem('token')
-            const res = await axios.get('http://localhost:5000/promotion/get-all-promotion', {
+            const res = await axios.get('https://gental-care-dental.onrender.com/promotion/get-all-promotion', {
                 headers: token ? { Authorization: `Bearer ${token}` } : {}
             });
 
@@ -127,7 +127,7 @@ const Promotion = () => {
     const handleDelete = async (id) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/promotion/delete-promotion/${id}`, {
+            await axios.delete(`https://gental-care-dental.onrender.com/promotion/delete-promotion/${id}`, {
                 headers: token ? { Authorization: `Bearer ${token}` } : {}
             });
             setPromotions(prev => prev.filter(p => String(p._id) !== String(id)));

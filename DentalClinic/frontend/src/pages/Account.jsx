@@ -64,7 +64,7 @@ function Account() {
     const fetchUsers = async () => {
         try {
             const token = localStorage.getItem('token');
-            const res = await axios.get("http://localhost:5000/user/all-users",
+            const res = await axios.get("https://gental-care-dental.onrender.com/user/all-users",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -80,7 +80,7 @@ function Account() {
     const handleDelete = async (userId) => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete(`http://localhost:5000/user/delete-user/${userId}`, {
+            await axios.delete(`https://gental-care-dental.onrender.com/user/delete-user/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -117,7 +117,7 @@ function Account() {
 
         if (!result.isConfirmed) return;
         try {
-            const res = await axios.patch(`http://localhost:5000/user/toggle-status/${userId}`, {}, {
+            const res = await axios.patch(`https://gental-care-dental.onrender.com/user/toggle-status/${userId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

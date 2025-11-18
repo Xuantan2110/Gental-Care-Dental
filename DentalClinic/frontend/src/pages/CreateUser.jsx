@@ -32,7 +32,7 @@ function CreateUser({ isOpen, onClose, onSuccess, openNotification }) {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.post("http://localhost:5000/user/create-user", formData,
+            await axios.post("https://gental-care-dental.onrender.com/user/create-user", formData,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,

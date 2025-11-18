@@ -46,7 +46,7 @@ function ChangePasswordFirstLogin() {
             };
 
             const res = await axios.post(
-                "http://localhost:5000/auth/change-password-first-login", payload,
+                "https://gental-care-dental.onrender.com/auth/change-password-first-login", payload,
                 {
                     headers: {
                         Authorization: token ? `Bearer ${token}` : "",

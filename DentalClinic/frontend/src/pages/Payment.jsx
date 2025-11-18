@@ -49,7 +49,7 @@ const Payment = () => {
             setLoading(true);
             setError('');
             const token = localStorage.getItem('token');
-            const res = await axios.get('http://localhost:5000/bill/get-all-bill', {
+            const res = await axios.get('https://gental-care-dental.onrender.com/bill/get-all-bill', {
                 headers: token ? { Authorization: `Bearer ${token}` } : {}
             });
             const data = Array.isArray(res.data?.bills) ? res.data.bills : [];
@@ -74,7 +74,7 @@ const Payment = () => {
         const token = localStorage.getItem('token');
         if (!token) return;
 
-        const socket = io('http://localhost:5000', {
+        const socket = io('https://gental-care-dental.onrender.com', {
             auth: { token },
         });
 
@@ -212,7 +212,7 @@ const Payment = () => {
         setLoading(true);
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/bill/delete-bill/${id}`, {
+            await axios.delete(`https://gental-care-dental.onrender.com/bill/delete-bill/${id}`, {
                 headers: token ? { Authorization: `Bearer ${token}` } : {}
             });
             openNotification('success', 'Bill deleted successfully');

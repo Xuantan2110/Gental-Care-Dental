@@ -49,20 +49,20 @@ const BookAppointment = ({ isOpen, onClose, openNotification, onSuccess }) => {
 
     useEffect(() => {
         if (isOpen) {
-            axios.get("http://localhost:5000/service/booking-services", {
+            axios.get("https://gental-care-dental.onrender.com/service/booking-services", {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(res => setServices(res.data.services))
                 .catch(err => console.error(err));
 
-            axios.get("http://localhost:5000/user/get-all-dentist", {
+            axios.get("https://gental-care-dental.onrender.com/user/get-all-dentist", {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(res => setDentists(res.data.dentists))
                 .catch(err => console.error(err));
 
             if (isOpen && isAllowed) {
-                axios.get("http://localhost:5000/user/get-all-customer", {
+                axios.get("https://gental-care-dental.onrender.com/user/get-all-customer", {
                     headers: { Authorization: `Bearer ${token}` }
                 })
                     .then(res => setCustomers(res.data.customers))
@@ -77,7 +77,7 @@ const BookAppointment = ({ isOpen, onClose, openNotification, onSuccess }) => {
     useEffect(() => {
         if (selectedDentist && date) {
             axios.post(
-                `http://localhost:5000/dentistWorkingTime/get-dentist-free-time-ranges/${selectedDentist}`,
+                `https://gental-care-dental.onrender.com/dentistWorkingTime/get-dentist-free-time-ranges/${selectedDentist}`,
                 { date: dayjs(date).format("YYYY-MM-DD") },
                 { headers: { Authorization: `Bearer ${token}` } }
             )
@@ -89,7 +89,7 @@ const BookAppointment = ({ isOpen, onClose, openNotification, onSuccess }) => {
     useEffect(() => {
         if (selectedDentist) {
             axios.get(
-                `http://localhost:5000/dentistWorkingTime/get-dentist-days-off/${selectedDentist}`,
+                `https://gental-care-dental.onrender.com/dentistWorkingTime/get-dentist-days-off/${selectedDentist}`,
                 { headers: { Authorization: `Bearer ${token}` } }
             )
                 .then(res => {
@@ -171,14 +171,14 @@ const BookAppointment = ({ isOpen, onClose, openNotification, onSuccess }) => {
 
             if (isAllowed) {
                 await axios.post(
-                    "http://localhost:5000/appointment/staff-create-appointment",
+                    "https://gental-care-dental.onrender.com/appointment/staff-create-appointment",
                     { ...payload, customerId: selectedCustomer },
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
                 openNotification("success", "Create appointments for customers successfully!");
             } else {
                 await axios.post(
-                    "http://localhost:5000/appointment/create-appointment",
+                    "https://gental-care-dental.onrender.com/appointment/create-appointment",
                     payload,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );

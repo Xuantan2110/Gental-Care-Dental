@@ -72,7 +72,7 @@ function ManageService() {
   const fetchServices = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get("http://localhost:5000/service/all-services",
+      const res = await axios.get("https://gental-care-dental.onrender.com/service/all-services",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -88,7 +88,7 @@ function ManageService() {
   const handleDelete = async (serviceId) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:5000/service/delete-service/${serviceId}`,
+      await axios.delete(`https://gental-care-dental.onrender.com/service/delete-service/${serviceId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

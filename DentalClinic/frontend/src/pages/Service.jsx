@@ -11,7 +11,7 @@ const Service = () => {
 
     const fetchServices = useCallback(async () => {
         try {
-            const res = await axios.get('http://localhost:5000/service/all-services', {
+            const res = await axios.get('https://gental-care-dental.onrender.com/service/all-services', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },

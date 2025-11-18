@@ -35,13 +35,13 @@ const ReviewModal = ({ isOpen, onClose, onSuccess, mode, review, openNotificatio
       let res;
       if (mode === "create") {
         res = await axios.post(
-          "http://localhost:5000/review/create-review",
+          "https://gental-care-dental.onrender.com/review/create-review",
           payload,
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else if (mode === "update" && review?._id) {
         res = await axios.put(
-          `http://localhost:5000/review/update-review/${review._id}`,
+          `https://gental-care-dental.onrender.com/review/update-review/${review._id}`,
           payload,
           { headers: { Authorization: `Bearer ${token}` } }
         );

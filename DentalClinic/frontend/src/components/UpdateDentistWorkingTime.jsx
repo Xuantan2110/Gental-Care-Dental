@@ -78,7 +78,7 @@ const UpdateDentistWorkingTime = ({ isOpenUpdate, onClose, onSuccess, openNotifi
         const fetchDentists = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const res = await axios.get('http://localhost:5000/user/get-all-dentist', {
+                const res = await axios.get('https://gental-care-dental.onrender.com/user/get-all-dentist', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setDentists(res.data.dentists);
@@ -99,7 +99,7 @@ const UpdateDentistWorkingTime = ({ isOpenUpdate, onClose, onSuccess, openNotifi
 
         try {
             await axios.put(
-                `http://localhost:5000/dentistWorkingTime/update-dentist-working-time/${schedule._id}`,
+                `https://gental-care-dental.onrender.com/dentistWorkingTime/update-dentist-working-time/${schedule._id}`,
                 formData,
                 { headers: { Authorization: `Bearer ${token}` } }
             );

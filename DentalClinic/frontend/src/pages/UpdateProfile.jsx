@@ -37,7 +37,7 @@ function UpdateProfile({ user, isOpen, onClose, onSuccess, openNotification }) {
     const handleSubmit = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.patch('http://localhost:5000/user/update-profile', formData, {
+            await axios.patch('https://gental-care-dental.onrender.com/user/update-profile', formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

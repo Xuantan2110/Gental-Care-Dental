@@ -46,10 +46,10 @@ const PaymentProcess = ({ isOpen, onClose, onSuccess, openNotification, billId }
         setLoading(true);
         setErrMsg('');
         const [promoRes, billRes] = await Promise.all([
-          axios.get(`http://localhost:5000/promotion/get-ongoing-promotion`, {
+          axios.get(`https://gental-care-dental.onrender.com/promotion/get-ongoing-promotion`, {
             headers: token ? { Authorization: `Bearer ${token}` } : {},
           }),
-          axios.get(`http://localhost:5000/bill/get-bill/${billId}`, {
+          axios.get(`https://gental-care-dental.onrender.com/bill/get-bill/${billId}`, {
             headers: token ? { Authorization: `Bearer ${token}` } : {},
           }),
         ]);
@@ -109,7 +109,7 @@ const PaymentProcess = ({ isOpen, onClose, onSuccess, openNotification, billId }
       }
       setLoading(true);
       await axios.patch(
-        `http://localhost:5000/bill/pay-bill/${billId}`,
+        `https://gental-care-dental.onrender.com/bill/pay-bill/${billId}`,
         {
           paymentMethod,
           promotionId: selectedPromotion || null,
@@ -140,7 +140,7 @@ const PaymentProcess = ({ isOpen, onClose, onSuccess, openNotification, billId }
     try {
       setCancelling(true);
       await axios.patch(
-        `http://localhost:5000/bill/cancel-bill/${billId}`,
+        `https://gental-care-dental.onrender.com/bill/cancel-bill/${billId}`,
         { cancelReason: cancelReason.trim() },
         { headers: token ? { Authorization: `Bearer ${token}` } : {} }
       );

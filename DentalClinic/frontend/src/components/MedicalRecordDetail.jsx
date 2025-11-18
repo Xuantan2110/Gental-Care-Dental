@@ -178,13 +178,13 @@ const MedicalRecordDetail = ({ isOpen, onClose, medicalRecordId, openNotificatio
   }, [token]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/service/all-services", {
+    axios.get("https://gental-care-dental.onrender.com/service/all-services", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => setServices(res.data.services))
       .catch(err => console.error(err));
 
-    axios.get("http://localhost:5000/medicine/get-medicines", {
+    axios.get("https://gental-care-dental.onrender.com/medicine/get-medicines", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => setMedicines(res.data.medicines))
@@ -193,7 +193,7 @@ const MedicalRecordDetail = ({ isOpen, onClose, medicalRecordId, openNotificatio
 
   const fetchMedicalRecordDetail = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/medicalRecord/get-medical-record-detail/${medicalRecordId}`, {
+      const response = await axios.get(`https://gental-care-dental.onrender.com/medicalRecord/get-medical-record-detail/${medicalRecordId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -228,7 +228,7 @@ const MedicalRecordDetail = ({ isOpen, onClose, medicalRecordId, openNotificatio
     setIsSaving(true);
     try {
       const response = await axios.patch(
-        `http://localhost:5000/medicalRecord/update-medical-info/${medicalRecordId}`,
+        `https://gental-care-dental.onrender.com/medicalRecord/update-medical-info/${medicalRecordId}`,
         {
           ...medicalInfo
         },
@@ -298,7 +298,7 @@ const MedicalRecordDetail = ({ isOpen, onClose, medicalRecordId, openNotificatio
   const handleSubmitAddService = async () => {
     try {
       await axios.post(
-        `http://localhost:5000/medicalRecord/add-service-used/${medicalRecordId}`,
+        `https://gental-care-dental.onrender.com/medicalRecord/add-service-used/${medicalRecordId}`,
         {
           serviceId: (selectedService?._id) || selectedServiceId,
           result: addResult || undefined,
@@ -324,7 +324,7 @@ const MedicalRecordDetail = ({ isOpen, onClose, medicalRecordId, openNotificatio
 
   const handleDeleteServiceItem = async (serviceItemId) => {
     try {
-      await axios.delete(`http://localhost:5000/medicalRecord/delete-service-used/${medicalRecordId}/${serviceItemId}`, {
+      await axios.delete(`https://gental-care-dental.onrender.com/medicalRecord/delete-service-used/${medicalRecordId}/${serviceItemId}`, {
 
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -341,7 +341,7 @@ const MedicalRecordDetail = ({ isOpen, onClose, medicalRecordId, openNotificatio
   const handleSubmitAddMedicine = async () => {
     try {
       await axios.post(
-        `http://localhost:5000/medicalRecord/add-prescriptions/${medicalRecordId}`,
+        `https://gental-care-dental.onrender.com/medicalRecord/add-prescriptions/${medicalRecordId}`,
         {
           medicineId: (selectedMedicine?._id) || selectedMedicineId,
           quantity: Number(addQuantity),
@@ -366,7 +366,7 @@ const MedicalRecordDetail = ({ isOpen, onClose, medicalRecordId, openNotificatio
 
   const handleDeleteMedicine = async (medicineItemId) => {
     try {
-      await axios.delete(`http://localhost:5000/medicalRecord/delete-prescriptions-item/${medicalRecordId}/${medicineItemId}`, {
+      await axios.delete(`https://gental-care-dental.onrender.com/medicalRecord/delete-prescriptions-item/${medicalRecordId}/${medicineItemId}`, {
 
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -383,7 +383,7 @@ const MedicalRecordDetail = ({ isOpen, onClose, medicalRecordId, openNotificatio
   const handleFinishTreatment = async () => {
     try {
       await axios.patch(
-        `http://localhost:5000/medicalRecord/finish-treatment/${medicalRecordId}`,
+        `https://gental-care-dental.onrender.com/medicalRecord/finish-treatment/${medicalRecordId}`,
         {},
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
@@ -399,7 +399,7 @@ const MedicalRecordDetail = ({ isOpen, onClose, medicalRecordId, openNotificatio
   const handleCancelTreatment = async () => {
     try {
       await axios.patch(
-        `http://localhost:5000/medicalRecord/cancel-treatment/${medicalRecordId}`,
+        `https://gental-care-dental.onrender.com/medicalRecord/cancel-treatment/${medicalRecordId}`,
         {},
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
