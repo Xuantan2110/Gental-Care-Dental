@@ -50,7 +50,7 @@ function ChangePassword() {
             };
 
             const res = await axios.post(
-                "http://localhost:5000/auth/change-password", payload,
+                "https://gental-care-dental.onrender.com/auth/change-password", payload,
                 {
                     headers: {
                         Authorization: token ? `Bearer ${token}` : "",
