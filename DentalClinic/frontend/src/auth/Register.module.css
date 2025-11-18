@@ -1,0 +1,331 @@
+/* Register.module.css */
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.registerCard {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 42rem;
+  overflow: hidden;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Section */
+.headerSection {
+  background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.headerSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.1; }
+}
+
+.logo {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.logoIcon {
+  color: #2563eb;
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form Section */
+.formSection {
+  padding: 2rem;
+}
+
+.welcomeText {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcomeTitle {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.welcomeSubtitle {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.formContainer {
+  margin-bottom: 1.5rem;
+}
+
+/* Input Styles */
+.inputGroup {
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.inputRow {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .inputRow {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.required {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input,
+.select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  color: #374151;
+  background-color: #fafafa;
+  transition: all 0.2s ease-in-out;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  transform: translateY(-1px);
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+}
+
+.select option {
+  background-color: white;
+  color: #374151;
+  padding: 0.5rem;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  transition: color 0.2s ease;
+  z-index: 1; 
+}
+
+.input:focus + .inputIcon,
+.select:focus + .inputIcon {
+  color: #2563eb;
+}
+
+
+
+/* Register Button */
+.registerButton {
+  width: 100%;
+  background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.registerButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0e7490 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+}
+
+.registerButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.registerButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.registerButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.registerButton:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.dividerText {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Login Section */
+.loginSection {
+  text-align: center;
+}
+
+.loginText {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.loginLink {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.loginLink:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .registerCard {
+    max-width: 100%;
+  }
+  
+  .formSection {
+    padding: 1.5rem;
+  }
+  
+  .headerSection {
+    padding: 1.5rem;
+  }
+  
+  .welcomeTitle {
+    font-size: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .input {
+    padding: 0.75rem 0.875rem 0.75rem 2.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .inputIcon {
+    left: 0.875rem;
+  }
+}

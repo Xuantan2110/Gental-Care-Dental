@@ -1,0 +1,419 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modalHeader {
+  padding: 24px 32px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  color: white;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modalTitle {
+  color: black;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.closeButton {
+  width: 36px;
+  height: 36px;
+  border: none;
+  color: black;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  transform: rotate(90deg);
+}
+
+.modalBody {
+  padding: 32px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #667eea;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoLabel {
+  font-size: 13px;
+  color: #757575;
+  font-weight: 500;
+}
+
+.infoValue {
+  font-size: 15px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  width: fit-content;
+}
+
+.statusPending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.statusPaid {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.statusCancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.itemTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.itemTable thead {
+  background-color: #f5f5f5;
+}
+
+.itemTable th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #424242;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.itemTable td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #424242;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.itemTable tbody tr:hover {
+  background-color: #fafafa;
+}
+
+.itemName {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.itemQuantity {
+  text-align: center;
+}
+
+.itemPrice,
+.itemTotal {
+  text-align: right;
+  font-weight: 600;
+}
+
+.summaryBox {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.summaryRow:last-child {
+  margin-bottom: 0;
+}
+
+.summaryLabel {
+  font-size: 14px;
+  color: #424242;
+  font-weight: 500;
+}
+
+.summaryValue {
+  font-size: 15px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.paymentMethod {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.discountValue {
+  font-size: 15px;
+  color: #f57c00;
+  font-weight: 700;
+}
+
+.cancelReason {
+  font-size: 14px;
+  color: #d32f2f;
+  font-weight: 500;
+  font-style: italic;
+  max-width: 300px;
+  word-wrap: break-word;
+  text-align: right;
+}
+
+.summaryDivider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 16px 0;
+}
+
+.finalRow {
+  padding-top: 8px;
+}
+
+.finalLabel {
+  font-size: 18px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.finalValue {
+  font-size: 24px;
+  color: #4caf50;
+  font-weight: 700;
+}
+
+.modalFooter {
+  padding: 20px 32px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  background-color: #fafafa;
+  border-radius: 0 0 16px 16px;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnPrimary {
+  background: #2f80ed;
+  color: white;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btnSecondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btnSecondary:hover {
+  background: #667eea;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    max-height: 95vh;
+    margin: 10px;
+  }
+
+  .modalHeader,
+  .modalBody,
+  .modalFooter {
+    padding: 16px;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modalFooter {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .modalOverlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .modalContent {
+    max-width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .modalHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .modalBody {
+    padding: 16px 12px;
+  }
+
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .tableWrapper {
+    border-radius: 6px;
+  }
+
+  .summaryBox {
+    padding: 16px;
+  }
+
+  .summaryRow,
+  .totalRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .modalFooter {
+    padding: 14px 12px;
+  }
+}
+
+@media print {
+  .modalOverlay {
+    background: white;
+  }
+
+  .modalFooter,
+  .closeButton {
+    display: none !important;
+  }
+
+  .modalContent {
+    max-height: none;
+    box-shadow: none;
+  }
+}

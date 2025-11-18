@@ -1,0 +1,554 @@
+.appointment {
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 15px 10px 15px;
+  background-color: #f8fafc;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #31bec1 0%, #0bbabd 100%);
+  padding: 32px 20px;
+  color: white;
+  margin-bottom: 20px;
+  border-radius: 0 0 16px 16px;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headerTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.headerSubtitle {
+  margin: 8px 0 0 48px;
+  font-size: 16px;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.addButton {
+  background-color: #0bbabd;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addButton:hover {
+  background-color: #008587;
+}
+
+.searchSection {
+  width: 100%;
+  margin: 0 0 1rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 250px;
+  padding: 0.75rem 1rem;
+  background: hsl(0, 0%, 100%);
+  border: 1px solid hsl(215, 20%, 88%);
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  color: hsl(215, 25%, 15%);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: hsl(195, 85%, 45%);
+  box-shadow: 0 0 0 3px hsl(195, 85%, 45%, 0.1);
+}
+
+.searchInput::placeholder {
+  color: hsl(215, 15%, 50%);
+}
+
+.appointmentsList {
+  width: 100%;
+  margin: 0 auto;
+  background: hsl(0, 0%, 100%);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.listHeader {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: hsl(210, 25%, 94%);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: hsl(215, 25%, 15%);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.appointmentItem {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid hsl(215, 20%, 88%);
+  align-items: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.appointmentItem:hover {
+  background: hsl(195, 75%, 92%);
+}
+
+.appointmentItem:last-child {
+  border-bottom: none;
+}
+
+.customerName,
+.dentistName {
+  font-weight: 600;
+  color: hsl(215, 25%, 15%);
+}
+
+.email {
+  word-break: break-all;
+  max-width: 100%;
+  font-size: 0.875rem;
+  color: hsl(215, 15%, 50%);
+  margin-top: 0.25rem;
+}
+
+.dateTime {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.date {
+  font-weight: 600;
+  color: hsl(215, 25%, 15%);
+}
+
+.time {
+  font-size: 0.875rem;
+  color: hsl(215, 15%, 50%);
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.serviceName {
+  font-size: 0.875rem;
+  color: hsl(215, 25%, 15%);
+}
+
+.note {
+  font-size: 0.875rem;
+  color: hsl(215, 15%, 50%);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  width: fit-content;
+}
+
+.statusPending {
+  background: hsl(35, 90%, 55%, 0.15);
+  color: hsl(35, 90%, 55%);
+}
+
+.statusConfirmed {
+  background: hsl(145, 65%, 45%, 0.15);
+  color: hsl(145, 65%, 45%);
+}
+
+.statusRejected {
+  background: hsl(0, 75%, 55%, 0.15);
+  color: hsl(0, 75%, 55%);
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.confirmButton {
+  background: hsl(145, 65%, 45%);
+  color: hsl(0, 0%, 100%);
+}
+
+.confirmButton:hover {
+  background: hsl(145, 65%, 40%);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.rejectButton {
+  background: hsl(0, 75%, 55%);
+  color: hsl(0, 0%, 100%);
+}
+
+.rejectButton:hover {
+  background: hsl(0, 75%, 50%);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.deleteButton {
+  background: hsl(210, 25%, 94%);
+  color: hsl(215, 25%, 15%);
+}
+
+.deleteButton:hover {
+  background: hsl(0, 75%, 55%);
+  color: hsl(0, 0%, 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.actionButton:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.emptyState {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+
+.emptyText {
+  color: hsl(215, 15%, 50%);
+  font-size: 1.125rem;
+}
+
+/* Filter Section */
+.filterSection {
+  margin-bottom: 24px;
+}
+
+.filterControls {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filterLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+
+/* Reject Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: slideUp 0.3s ease-out;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.modalCloseButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: color 0.2s;
+  border-radius: 6px;
+}
+
+.modalCloseButton:hover {
+  color: #111827;
+  background-color: #f3f4f6;
+}
+
+.modalBody {
+  padding: 24px;
+}
+
+.modalDescription {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+.modalTextarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.modalTextarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.modalTextarea::placeholder {
+  color: #9ca3af;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  border-radius: 0 0 12px 12px;
+}
+
+.modalCancelButton {
+  padding: 10px 20px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  color: #374151;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modalCancelButton:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.modalSubmitButton {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modalSubmitButton:hover {
+  background-color: #dc2626;
+}
+
+.modalSubmitButton:active {
+  transform: scale(0.98);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  .filterControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .listHeader,
+  .appointmentItem {
+    grid-template-columns: 1fr 1fr 1fr 1fr 180px;
+  }
+
+  .services {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .listHeader {
+    display: none;
+  }
+
+  .appointmentItem {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .searchSection {
+    flex-direction: column;
+  }
+
+  .searchInput {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .appointment {
+    flex-direction: column;
+  }
+
+  .headerContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .controls {
+    justify-content: flex-start;
+  }
+
+  .addButton {
+    width: 100%;
+  }
+
+  .appointmentsList {
+    border-radius: 0.5rem;
+  }
+
+  .actionButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

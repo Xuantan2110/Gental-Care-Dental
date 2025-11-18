@@ -1,0 +1,305 @@
+.dentistProfile {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #f5fbff 0%, #f5f5ff 35%, #fef9f3 100%);
+    gap: 24px;
+}
+
+.leftPanel {
+    margin: 1rem 0;
+    width: 360px;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid rgba(24, 144, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.searchContainer {
+    padding: 24px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+    background: linear-gradient(135deg, #a4d0ff, #c8e2ff);
+}
+
+.searchInput {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 14px;
+    outline: none;
+    background: #ffffff;
+    box-shadow: inset 0 0 0 1px rgba(24, 144, 255, 0.1);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.searchInput:focus {
+    box-shadow: 0 8px 16px rgba(24, 144, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.dentistList {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.dentistItem {
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid transparent;
+    background: #ffffff;
+}
+
+.dentistItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+}
+
+.dentistItemActive {
+    border: 1px solid rgba(24, 144, 255, 0.4);
+    background: linear-gradient(135deg, rgba(24, 144, 255, 0.08), rgba(45, 212, 191, 0.12));
+}
+
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid rgba(24, 144, 255, 0.15);
+}
+
+.avatarImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dentistInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.dentistName {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dentistEmail {
+    font-size: 13px;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Right Panel */
+.rightPanel {
+    margin: 1rem 1rem 1rem 0px;
+    flex: 1;
+    padding: 32px 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 28px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(6px);
+    overflow-y: auto;
+}
+
+.emptyState {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.emptyStateIcon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.emptyStateText {
+    font-size: 16px;
+    color: #595959;
+    margin-bottom: 24px;
+}
+
+.formTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* Form */
+.formContainer {
+    max-width: 720px;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .formGroup.split {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+.label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+    background: #fdfdfd;
+}
+
+.textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: rgba(24, 144, 255, 0.7);
+    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.15);
+}
+
+/* Buttons */
+.buttonContainer {
+    display: flex;
+    gap: 12px;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.buttonPrimary,
+.buttonSuccess,
+.buttonDanger {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+}
+
+.buttonPrimary {
+    background: linear-gradient(135deg, #1890ff, #5c9dff);
+    color: #ffffff;
+}
+
+.buttonPrimary:hover {
+    transform: translateY(-2px);
+}
+
+.buttonSuccess {
+    background: linear-gradient(135deg, #34d399, #10b981);
+    color: #ffffff;
+}
+
+.buttonSuccess:hover {
+    transform: translateY(-2px);
+}
+
+.buttonDanger {
+    background: linear-gradient(135deg, #ff6b6b, #ff4d4f);
+    color: #ffffff;
+}
+
+.buttonDanger:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .dentistProfile {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .leftPanel {
+        width: 100%;
+        margin: 1rem;
+        max-height: 50vh;
+    }
+
+    .rightPanel {
+        margin: 0 1rem 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .leftPanel {
+        margin: 0;
+        border-radius: 20px;
+    }
+
+    .searchContainer {
+        padding: 16px;
+    }
+
+    .dentistItem {
+        padding: 12px;
+    }
+
+    .rightPanel {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .formContainer {
+        padding: 20px;
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+    }
+
+    .buttonPrimary,
+    .buttonSuccess,
+    .buttonDanger {
+        width: 100%;
+        text-align: center;
+    }
+}

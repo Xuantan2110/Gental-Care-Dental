@@ -1,0 +1,230 @@
+.messengerContainer {
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  z-index: 1000;
+}
+
+.messengerButton {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgb(0, 76, 255);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.messengerButtonHover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.messengerButtonHidden {
+  display: none;
+}
+
+.chatInputWrapper {
+  display: flex;
+  padding: 12px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #fff;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.sendButton {
+  margin-left: 8px;
+  background-color: #637AB9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sendButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.chatWindow {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  width: 350px;
+  height: 500px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.chatWindowOpen {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.chatHeader {
+  background-color: #637AB9;
+  color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatBody {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background:
+    linear-gradient(rgba(246, 246, 246, 0.9), rgba(246, 246, 246, 0.9)),
+    url("../assets/backgroundChatWindow.png");
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message {
+  position: relative;
+  z-index: 2;
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  animation: messageSlideIn 0.3s ease-out;
+}
+
+.myMessage {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #4FB7B3, #307ac5);
+  color: white;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+}
+
+.theirMessage {
+  align-self: flex-start;
+  background-color: #ffffff;
+  color: #333;
+  border: 2px solid #e0e0e0;
+  border-bottom-left-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.welcomeText {
+  text-align: center;
+  color: #65676b;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .messengerContainer,
+  .chatBotContainer {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .chatWindow {
+    width: calc(100% - 32px);
+    height: 70vh;
+    right: 16px;
+    bottom: 16px;
+    border-radius: 16px;
+  }
+
+  .chatHeader {
+    padding: 12px;
+  }
+
+  .chatBody {
+    padding: 12px;
+  }
+
+  .chatInputWrapper {
+    padding: 10px;
+  }
+
+  .chatInput {
+    font-size: 13px;
+  }
+
+  .sendButton {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .chatWindow {
+    width: calc(100% - 24px);
+    height: 80vh;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .messengerButton {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(0, 132, 255, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 10px rgba(0, 132, 255, 0);
+  }
+
+  100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(0, 132, 255, 0);
+  }
+}

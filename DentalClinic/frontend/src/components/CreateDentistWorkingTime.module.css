@@ -1,0 +1,501 @@
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* Modal Container */
+.modal {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal Header */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #f3f4f6;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.modalTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.titleIcon {
+  color: white;
+}
+
+.modalTitle h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.closeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Modal Body */
+.modalBody {
+  padding: 24px;
+  max-height: calc(90vh - 120px);
+  overflow-y: auto;
+}
+
+/* Form Groups */
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+/* Input Styles */
+.select{
+  width: 100%;
+  height: 40px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.input:focus  {
+  outline: none;
+  border-color: #10b981; 
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.input.error,
+.select.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Checkbox Styles */
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.checkboxLabel:hover {
+  background-color: #f3f4f6;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #10b981;
+  cursor: pointer;
+}
+
+.checkboxText {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Shift Groups */
+.shiftGroup {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.shiftHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.timeInputs {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.timeGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeLabel {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.timeInput {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.timeInput:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+}
+
+.timeInput.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+}
+
+.timeSeparator {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+}
+
+/* Error Styles */
+.errorText {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.errorAlert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fef2f2;
+  color: #dc2626;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Modal Actions */
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.cancelButton {
+  padding: 10px 20px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  color: #374151;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.cancelButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submitButton {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.submitButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+/* Working Days Selection Styles */
+.workingDaysContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.dayCheckboxLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    flex: 1;
+    min-width: 80px;
+    max-width: 120px;
+}
+
+.dayCheckbox {
+    display: none;
+}
+
+.dayCheckboxText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 8px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: center;
+    min-height: 60px;
+    justify-content: center;
+}
+
+.dayCheckbox:checked + .dayCheckboxText {
+    background-color: #08cd8f;
+    border-color: #08a271;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.dayCheckboxLabel:hover .dayCheckboxText {
+    border-color: #08a271;
+    background-color: #f8fafc;
+}
+
+.dayCheckbox:checked + .dayCheckboxText:hover {
+    background-color: #08a271;
+    border-color: #08a271;
+}
+
+.dayShort {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.dayFull {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-top: 2px;
+    line-height: 1.1;
+}
+
+.dayCheckbox:checked + .dayCheckboxText .dayFull {
+    opacity: 0.9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .workingDaysContainer {
+        justify-content: space-between;
+    }
+    
+    .dayCheckboxLabel {
+        min-width: 70px;
+        max-width: 70px;
+    }
+    
+    .dayCheckboxText {
+        padding: 10px 4px;
+        min-height: 55px;
+    }
+    
+    .dayShort {
+        font-size: 13px;
+    }
+    
+    .dayFull {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .workingDaysContainer {
+        gap: 6px;
+    }
+    
+    .dayCheckboxLabel {
+        min-width: 60px;
+        max-width: 60px;
+    }
+    
+    .dayCheckboxText {
+        padding: 8px 2px;
+        min-height: 50px;
+    }
+    
+    .dayShort {
+        font-size: 12px;
+    }
+    
+    .dayFull {
+        font-size: 9px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .modalOverlay {
+    padding: 10px;
+  }
+  
+  .modal {
+    max-width: none;
+    margin: 0;
+  }
+  
+  .modalHeader,
+  .modalBody {
+    padding: 20px;
+  }
+  
+  .timeInputs {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .timeSeparator {
+    display: none;
+  }
+  
+  .modalActions {
+    flex-direction: column-reverse;
+  }
+  
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalHeader,
+  .modalBody {
+    padding: 16px;
+  }
+  
+  .modalTitle h2 {
+    font-size: 18px;
+  }
+  
+  .shiftGroup {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .modalOverlay {
+    padding: 6px;
+  }
+
+  .modalHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .modalActions {
+    gap: 8px;
+  }
+}

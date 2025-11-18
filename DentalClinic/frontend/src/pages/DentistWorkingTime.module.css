@@ -1,0 +1,412 @@
+.denstistWorkingTime {
+    display: flex;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 15px 10px 15px;
+    background-color: #f8fafc;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    padding: 32px 20px;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 0 0 16px 16px;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.headerTitle {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.headerSubtitle {
+    margin: 8px 0 0 48px;
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Search Section */
+.searchSection {
+    margin-bottom: 32px;
+}
+
+.searchContainer {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.searchInputContainer {
+    position: relative;
+    flex: 1;
+    min-width: 300px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    z-index: 1;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 11px 12px 11px 44px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.filterSelect{
+    height: 40px;
+}
+
+.addButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.addButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Table Section */
+.tableSection {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.sectionHeader {
+    padding: 20px 24px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.sectionTitleContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.specialIcon {
+    color: #6366f1;
+}
+
+.fixedIcon {
+    color: #10b981;
+}
+
+.sectionTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+/* Table */
+.tableContainer {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableHead {
+    background-color: #f9fafb;
+}
+
+.tableHeader {
+    padding: 16px 24px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tableRow {
+    transition: background-color 0.15s ease;
+}
+
+.tableRow:hover {
+    background-color: #f9fafb;
+}
+
+.tableCell {
+    padding: 16px 24px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    color: #374151;
+    vertical-align: top;
+}
+
+.tableCellNoData {
+    padding: 16px 24px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    text-align: center;
+    color: #374151;
+    vertical-align: top;
+}
+
+/* Doctor Info */
+.doctorName {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.doctorEmail {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Date Info */
+.dateText {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.dayText {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Status Badge */
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.statusActive {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.statusClosed {
+    background-color: #fecaca;
+    color: #991b1b;
+}
+
+.workingDaysContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+}
+
+.dayBadge {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid #bae6fd;
+    white-space: nowrap;
+}
+
+.dayBadge.compact {
+    padding: 1px 6px;
+    font-size: 10px;
+}
+
+/* Action Buttons */
+.actionButtons {
+    display: flex;
+    gap: 8px;
+}
+
+.editButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #f3f4f6;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #6b7280;
+}
+
+.editButton:hover {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.deleteButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #fef2f2;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #dc2626;
+}
+
+.deleteButton:hover {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .maxWidth {
+        padding: 0 16px;
+    }
+
+    .header {
+        padding: 24px 16px;
+        margin: -16px -16px 24px -16px;
+    }
+
+    .headerTitle {
+        font-size: 24px;
+    }
+
+    .headerSubtitle {
+        margin-left: 40px;
+        font-size: 14px;
+    }
+
+    .searchContainer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .searchInputContainer {
+        min-width: auto;
+    }
+
+    .filterContainer {
+        justify-content: center;
+    }
+
+    .tableHeader,
+    .tableCell {
+        padding: 12px 16px;
+    }
+
+    .actionButtons {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .editButton,
+    .deleteButton {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .denstistWorkingTime {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 0 1rem 1.25rem;
+    }
+
+    .header {
+        border-radius: 0 0 12px 12px;
+    }
+
+    .controls {
+        justify-content: flex-start;
+    }
+
+    .addButton {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tableSection {
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headerContent {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .headerSubtitle {
+        margin-left: 0;
+    }
+
+    .tableHeader,
+    .tableCell {
+        padding: 8px 12px;
+    }
+
+    .doctorName,
+    .dateText {
+        font-size: 13px;
+    }
+
+    .doctorEmail,
+    .dayText {
+        font-size: 12px;
+    }
+}

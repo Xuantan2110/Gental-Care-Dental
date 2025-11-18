@@ -1,0 +1,338 @@
+.medicalRecord {
+    display: flex;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 0px 15px 10px 15px;
+    background: #f0f4f8;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.header {
+    background: linear-gradient(135deg, #4c6182 0%, #2d466f 100%);
+    padding: 32px 20px;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 0 0 16px 16px;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.headerTitle {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.headerSubtitle {
+    margin: 8px 0 0 48px;
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.addButton {
+  background-color: #2d466f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addButton:hover {
+  background-color: #008587;
+}
+
+.filterSection {
+    margin-bottom: 24px;
+}
+
+.filterControls {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+
+.filterGroup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filterLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+}
+
+.searchSection {
+    width: 100%;
+    margin: 0 0 1rem 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.searchInput {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.75rem 1rem;
+    background: hsl(0, 0%, 100%);
+    border: 1px solid hsl(215, 20%, 88%);
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    color: hsl(215, 25%, 15%);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: hsl(195, 85%, 45%);
+    box-shadow: 0 0 0 3px hsl(195, 85%, 45%, 0.1);
+}
+
+.searchInput::placeholder {
+    color: hsl(215, 15%, 50%);
+}
+
+.tableWrapper {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.table thead {
+    background: #e2e8f0;
+}
+
+.table th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    color: #1e3a5f;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #cbd5e1;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table td {
+    padding: 1.25rem 1.5rem;
+    color: #334155;
+}
+
+.fullName {
+    font-weight: 600;
+    color: #1e3a5f;
+}
+
+.phoneNumber {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+.statusBadge {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.statusInProgress {
+    background: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fbbf24;
+}
+
+.statusCompleted {
+    background: #d1fae5;
+    color: #059669;
+    border: 1px solid #34d399;
+}
+
+.statusPending {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border: 1px solid #60a5fa;
+}
+
+.genderBadge {
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.emptyState {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #64748b;
+}
+
+.emptyStateIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.actionButton {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.deleteButton {
+  background: hsl(210, 25%, 94%);
+  color: hsl(215, 25%, 15%);
+}
+
+.deleteButton:hover {
+  background: hsl(0, 75%, 55%);
+  color: hsl(0, 0%, 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .table {
+        font-size: 0.875rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.875rem 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .filterControls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filterGroup {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .searchSection {
+        flex-direction: column;
+    }
+
+    .searchInput {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .tableWrapper {
+        overflow-x: auto;
+    }
+
+    .table {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 520px) {
+    .medicalRecord {
+        flex-direction: column;
+    }
+
+    .header {
+        padding: 24px 16px;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .headerContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .headerSubtitle {
+        margin-left: 0;
+    }
+
+    .controls {
+        justify-content: flex-start;
+    }
+
+    .addButton {
+        width: 100%;
+    }
+
+    .filterControls {
+        margin-left: 0;
+    }
+
+    .filterGroup {
+        width: 100%;
+    }
+
+    .searchSection {
+        gap: 0.75rem;
+    }
+}

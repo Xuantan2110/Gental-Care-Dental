@@ -1,0 +1,739 @@
+.container {
+  display: flex;
+  gap: 24px;
+  padding: 70px 30px 30px 30px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Patient Information Card */
+.patientCard {
+  flex: 0 0 350px;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  border: 1px solid #e2e8f0;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 16px;
+}
+
+.avatarImg {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.changeAvatarBtn {
+  position: relative;
+  bottom: 40px;
+  left: 150px;
+  cursor: pointer;
+  padding: 5px;
+  background: rgb(203, 203, 203);
+  border-radius: 50%;
+}
+
+.patientName {
+  text-align: center;
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.patientId {
+  text-align: center;
+  margin: 0 0 24px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.contactInfo {
+  margin-bottom: 25px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #475569;
+  font-size: 14px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.changePasswordBtn {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.changePasswordBtn:hover {
+  background-color: #1458ed;
+}
+
+.logoutBtn {
+  background-color: #d52b2b;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.logoutBtn:hover {
+  background-color: #b01313;
+}
+
+.editProfileBtn {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.editProfileBtn:hover {
+  background-color: #1458ed;
+}
+
+.label {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Medical Records */
+.medicalRecords {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.recordsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.recordsTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.fileIcon {
+  font-size: 24px;
+  color: #3b82f6;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.scheduleBtn,
+.appointmentBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  transition: all 0.2s;
+}
+
+.scheduleBtn:hover,
+.appointmentBtn:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+/* Added active state for buttons */
+.scheduleBtn.active,
+.appointmentBtn.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.clockIcon,
+.calendarIcon {
+  font-size: 16px;
+}
+
+.recordsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.recordCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fafbfc;
+  transition: all 0.2s;
+}
+
+.recordCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.recordHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.recordTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.statusBadge {
+  background: #dcfce7;
+  color: #166534;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.doctorName {
+  margin: 0 0 8px;
+  color: #3b82f6;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.recordDescription {
+  margin: 0 0 16px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.recordDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.recordDate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.dateIcon {
+  color: #3b82f6;
+}
+
+.recordCost {
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.recordNote {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.noteLabel {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.noteText {
+  color: #475569;
+}
+
+/* Added styles for appointments list and cards */
+.appointmentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.appointmentCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fafbfc;
+  transition: all 0.2s;
+}
+
+.appointmentCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.appointmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.appointmentTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.appointmentStatus {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Added different status colors for appointments */
+.appointmentStatus.đặt {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.appointmentStatus.chờxácnhận {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.appointmentDescription {
+  margin: 0 0 16px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.appointmentDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.appointmentDateTime {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.timeIcon {
+  color: #3b82f6;
+  margin-left: 12px;
+}
+
+.appointmentType {
+  color: #1e293b;
+  font-size: 14px;
+}
+
+/* Empty State */
+.emptyState {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 16px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.emptyState p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.statusBadge.completed {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #4ade80;
+}
+
+.statusBadge.inprogess {
+    background-color: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fbbf24;
+}
+
+.statusBadge.cancelled {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #f87171;
+}
+
+/* Appointment Status Styles */
+.appointmentStatus.confirmed {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    border: 1px solid #60a5fa;
+}
+
+.appointmentStatus.pending {
+    background-color: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fbbf24;
+}
+
+.appointmentStatus.rejected {
+    background-color: #fce7f3;
+    color: #be185d;
+    border: 1px solid #f472b6;
+}
+
+/* Scrollbar Custom cho lists */
+.recordsList::-webkit-scrollbar,
+.appointmentsList::-webkit-scrollbar {
+    width: 8px;
+}
+
+.recordsList::-webkit-scrollbar-track,
+.appointmentsList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.recordsList::-webkit-scrollbar-thumb,
+.appointmentsList::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.recordsList::-webkit-scrollbar-thumb:hover,
+.appointmentsList::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Cải thiện recordNote - thêm nhiều style hơn */
+.recordNote {
+    margin-top: 12px;
+    padding: 12px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    border-left: 4px solid #3b82f6;
+}
+
+.recordNote .noteLabel {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.recordNote .noteText {
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* Responsive improvements cho mobile */
+@media (max-width: 768px) {
+    .recordHeader,
+    .appointmentHeader {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .statusBadge,
+    .appointmentStatus {
+        align-self: flex-start;
+        margin-top: 8px;
+    }
+    
+    .recordDetails {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .appointmentDateTime {
+        flex-wrap: wrap;
+    }
+}
+
+/* Bill Section Styles */
+.billSection {
+    margin-top: 20px;
+    padding: 16px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-radius: 12px;
+    border: 2px solid #bae6fd;
+}
+
+.billHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #7dd3fc;
+}
+
+.billTitle {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0c4a6e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.billStatus {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.billStatus.paid {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #4ade80;
+}
+
+.billStatus.pending {
+    background-color: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fbbf24;
+}
+
+.billStatus.cancelled {
+    background-color: #fce7f3;
+    color: #be185d;
+    border: 1px solid #f472b6;
+}
+
+.billDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.billRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.billRow.billTotal {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 2px dashed #7dd3fc;
+}
+
+.billLabel {
+    color: #0c4a6e;
+    font-weight: 500;
+}
+
+.billValue {
+    color: #0f172a;
+    font-weight: 500;
+}
+
+.billCancelReason {
+    color: #d32f2f;
+    font-weight: 500;
+    font-style: italic;
+    word-wrap: break-word;
+    text-align: right;
+}
+
+.billDiscount {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+.billFinalAmount {
+    color: #0c4a6e;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Payment Status Badge Variants */
+.statusBadge.paid,
+.appointmentStatus.paid {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #4ade80;
+}
+
+/* Responsive for Bill Section */
+@media (max-width: 768px) {
+    .billSection {
+        padding: 12px;
+    }
+    
+    .billHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .billStatus {
+        align-self: flex-start;
+    }
+    
+    .billRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .billFinalAmount {
+        font-size: 16px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .patientCard {
+    flex: none;
+  }
+
+  .recordsHeader {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .headerButtons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* Added responsive styles for appointment details */
+  .appointmentDetails {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 12px;
+  }
+
+  .patientCard,
+  .medicalRecords {
+    padding: 16px;
+  }
+
+  .avatar,
+  .avatarImg {
+    width: 140px;
+    height: 140px;
+  }
+
+  .changeAvatarBtn {
+    left: 100px;
+    bottom: 32px;
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .changePasswordBtn,
+  .logoutBtn,
+  .editProfileBtn {
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .recordsHeader {
+    gap: 12px;
+  }
+
+  .headerButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .scheduleBtn,
+  .appointmentBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .recordCard,
+  .appointmentCard {
+    padding: 16px;
+  }
+
+  .recordDetails,
+  .appointmentDetails {
+    padding: 10px 0;
+  }
+
+  .billSection {
+    padding: 12px;
+  }
+}

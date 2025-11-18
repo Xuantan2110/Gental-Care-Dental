@@ -1,0 +1,208 @@
+.container {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, #eff6ff, #a5f3fc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginCard {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 28rem;
+  overflow: hidden;
+}
+
+.headerSection {
+  background-image: linear-gradient(to right, #2563eb, #06b6d4);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.logo {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  background-color: white;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoIcon {
+  color: #2563eb;
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.formSection {
+  padding: 2rem;
+}
+
+.welcomeText {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcomeTitle {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.errorTitle {
+  color: #f52727;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  color: #374151;
+}
+
+.input:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.eyeIcon:hover {
+  color: #4b5563;
+}
+
+.forgotPassword {
+  text-align: right;
+  margin-bottom: 1.5rem;
+}
+
+.forgotLink {
+  font-size: 0.875rem;
+  color: #2563eb;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.forgotLink:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+.loginButton {
+  width: 100%;
+  background-image: linear-gradient(to right, #2563eb, #06b6d4);
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  transform: scale(1);
+}
+
+.loginButton:hover {
+  background-image: linear-gradient(to right, #1e3a8a, #0891b2);
+  transform: scale(1.05);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.dividerLine {
+  flex: 1;
+  border-top: 1px solid #d1d5db;
+}
+
+.dividerText {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.registerSection {
+  text-align: center;
+}
+
+.registerText {
+  color: #4b5563;
+}
+
+.registerLink {
+  color: #2563eb;
+  font-weight: 600;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.registerLink:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+
+/* Ẩn icon mắt mặc định của trình duyệt cho input password */
+:global(input[type="password"]::-ms-reveal),
+:global(input[type="password"]::-ms-clear) {
+  display: none;
+}
+
+:global(input[type="password"]::-webkit-credentials-auto-fill-button),
+:global(input[type="password"]::-webkit-contacts-auto-fill-button),
+:global(input[type="password"]::-webkit-textfield-decoration-container) {
+  display: none !important;
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}

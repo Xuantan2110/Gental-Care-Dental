@@ -1,0 +1,251 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.modal {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 42rem;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+}
+
+.mainContent {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.closeButton {
+  height: 2rem;
+  width: 2rem;
+  color: #6b7280;
+  transition: all 0.2s;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.closeButton:hover {
+  color: #374151;
+  background-color: #f3f4f6;
+}
+
+.form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.star {
+  color: #ef4444;
+}
+
+.select {
+  height: 44px;
+}
+
+.input,
+.textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  background: white;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.inputError {
+  border: 1px solid red !important;
+  border-radius: 10px;
+}
+
+.textarea {
+  resize: none;
+  font-family: inherit;
+}
+
+.gridTwo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .gridTwo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .overlay {
+    padding: 0.5rem;
+  }
+
+  .modal {
+    max-height: 95vh;
+    border-radius: 12px;
+  }
+
+  .header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .form {
+    padding: 1.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .cancelBtn,
+  .submitBtn {
+    width: 100%;
+  }
+}
+
+/* Switch Container Styles */
+.switchContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.5rem 0;
+}
+
+.switchLabel {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.cancelBtn,
+.submitBtn {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.cancelBtn {
+  background: white;
+  border: 2px solid #e5e7eb;
+  color: #6b7280;
+}
+
+.cancelBtn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border: none;
+  color: white;
+}
+
+.submitBtn:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.submitBtn.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  pointer-events: none;
+}
+
+.submitBtn.loading:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Spinner animation for loading state */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

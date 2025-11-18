@@ -1,0 +1,173 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideIn 0.2s ease-out;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.content {
+  padding: 20px 24px;
+  text-align: center;
+}
+
+.icon {
+  color: #ef4444;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.message {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  padding: 0 24px 24px;
+  justify-content: flex-end;
+}
+
+.cancelButton {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.deleteButton {
+  padding: 8px 16px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deleteButton:hover {
+  background: #dc2626;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .modal {
+    margin: 16px;
+    width: calc(100% - 32px);
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .cancelButton,
+  .deleteButton {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .modal {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

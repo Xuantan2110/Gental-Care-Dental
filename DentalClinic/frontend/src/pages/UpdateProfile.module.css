@@ -1,0 +1,202 @@
+.pageWrapper * {
+    box-sizing: border-box;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.modal {
+    background: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    overflow-y: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out forwards;
+    box-sizing: border-box;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.header {
+    background: linear-gradient(to right, #2563eb, #0891b2);
+    color: white;
+    padding: 1rem;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.closeButton {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeButton:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.form {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #06b6d4;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 2px solid #dbeafe;
+    border-radius: 12px;
+    outline: none;
+    background: #eff6ff;
+    color: #1e3a8a;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px #bfdbfe;
+}
+
+.gridTwo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dbeafe;
+}
+
+.cancelButton {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    background: white;
+    color: #4b5563;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.saveButton {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 12px;
+    background: linear-gradient(to right, #2563eb, #0891b2);
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.saveButton:hover {
+    background: linear-gradient(to right, #1d4ed8, #0e7490);
+    transform: scale(1.05);
+}
+
+@media (max-width: 640px) {
+    .modal {
+        margin: 1rem;
+        max-height: 95vh;
+        border-radius: 12px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .form {
+        padding: 1.25rem;
+    }
+
+    .gridTwo {
+        grid-template-columns: 1fr;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .saveButton,
+    .cancelButton {
+        width: 100%;
+    }
+}

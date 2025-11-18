@@ -1,0 +1,243 @@
+/* overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.header {
+  padding: 24px 24px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  padding: 0 24px 24px 24px;
+}
+
+.currentPhoto {
+  margin-bottom: 24px;
+}
+
+.photoContainer {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 16px auto;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #e5e7eb;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+}
+
+.removeButton {
+  z-index: 10;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ef4444;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.uploadArea {
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.uploadAreaActive {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.uploadIcon {
+  margin: 0 auto 16px auto;
+  color: #6b7280;
+}
+
+.uploadText {
+  color: #374151;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+
+.uploadSubtext {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cancelButton {
+  background-color: #f9fafb;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.saveButton {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.saveButtonDisabled {
+  background-color: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  animation: spin 0.9s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .modal {
+    max-width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .header {
+    padding: 20px 20px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .content {
+    padding: 0 20px 20px;
+  }
+
+  .photoContainer {
+    width: 200px;
+    height: 200px;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .photoContainer {
+    width: 160px;
+    height: 160px;
+  }
+
+  .removeButton {
+    width: 28px;
+    height: 28px;
+  }
+
+  .uploadArea {
+    padding: 16px;
+  }
+}
