@@ -1,6 +1,8 @@
-import styles from "./NotFound.module.css"
+import styles from "./NotFound.module.css";
+import { useNavigate } from "react-router-dom";
 
 function NotFound() {
+  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       <div className={styles.content}>

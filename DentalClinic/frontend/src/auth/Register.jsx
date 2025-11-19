@@ -4,6 +4,7 @@ import styles from './Register.module.css';
 import axios from 'axios';
 import { notification } from 'antd';
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
     const [api, contextHolder] = notification.useNotification();
@@ -16,6 +17,7 @@ function Register() {
         address: '',
     });
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
     
     const openNotification = (type, detailMessage = "") => {
         if (type === "success") {
