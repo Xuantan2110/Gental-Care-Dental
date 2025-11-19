@@ -121,7 +121,14 @@ function Login() {
 
             {/* Forgot Password */}
             <div className={styles.forgotPassword}>
-              <a href="/forgot-password" className={styles.forgotLink}>
+              <a 
+                href="/forgot-password" 
+                className={styles.forgotLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/forgot-password");
+                }}
+              >
                 Forgot Password?
               </a>
             </div>
@@ -147,7 +154,14 @@ function Login() {
           <div className={styles.registerSection}>
             <p className={styles.registerText}>
               No account yet?{' '}
-              <a href="/register" className={styles.registerLink}>
+              <a 
+                href="/register" 
+                className={styles.registerLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/register");
+                }}
+              >
                 Sign up now
               </a>
             </p>

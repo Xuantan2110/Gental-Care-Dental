@@ -327,7 +327,14 @@ const ForgotPassword = () => {
                         )}
 
                         <div className={styles.center}>
-                            <a href="/" className={styles.linkSecondary}>
+                            <a 
+                                href="/" 
+                                className={styles.linkSecondary}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    navigate("/");
+                                }}
+                            >
                                 Back to home
                             </a>
                         </div>

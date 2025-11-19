@@ -243,7 +243,14 @@ function HomePage() {
                 <img src={AwardIcon} alt="Award icon" className={styles.serviceIcon} />
                 <h3 className={styles.serviceTitle}>{service.type}</h3>
                 <p className={styles.serviceDescription}>{service.desc}</p>
-                <a href="/service" className={styles.serviceLink}>
+                <a 
+                  href="/service" 
+                  className={styles.serviceLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate("/service");
+                  }}
+                >
                   Learn More
                 </a>
               </div>

@@ -274,7 +274,14 @@ function Register() {
                     <div className={styles.loginSection}>
                         <p className={styles.loginText}>
                             Already have an account?{' '}
-                            <a href="/" className={styles.loginLink}>
+                            <a 
+                                href="/" 
+                                className={styles.loginLink}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    navigate("/");
+                                }}
+                            >
                                 Sign in now
                             </a>
                         </p>

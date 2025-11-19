@@ -17,10 +17,24 @@ function NotFound() {
         </div>
 
         <div className={styles.actions}>
-          <a href="/home" className={styles.primaryButton}>
+          <a 
+            href="/home" 
+            className={styles.primaryButton}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/home");
+            }}
+          >
             Back to home page
           </a>
-          <a href="/contact" className={styles.secondaryButton}>
+          <a 
+            href="/contact" 
+            className={styles.secondaryButton}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/contact");
+            }}
+          >
             Contact support
           </a>
         </div>
