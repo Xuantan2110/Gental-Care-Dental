@@ -1,8 +1,7 @@
 import styles from "./NotFound.module.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NotFound() {
-  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -19,26 +18,18 @@ function NotFound() {
         </div>
 
         <div className={styles.actions}>
-          <a 
-            href="/home" 
+          <Link 
+            to="/home" 
             className={styles.primaryButton}
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/home");
-            }}
           >
             Back to home page
-          </a>
-          <a 
-            href="/contact" 
+          </Link>
+          <Link 
+            to="/contact" 
             className={styles.secondaryButton}
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/contact");
-            }}
           >
             Contact support
-          </a>
+          </Link>
         </div>
 
         <div className={styles.decorativeElements}>

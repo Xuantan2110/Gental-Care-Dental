@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styles from "./ForgotPassword.module.css";
 import { Mail, Shield, KeyRound, Check } from "lucide-react";
 import { notification } from 'antd';
@@ -327,16 +327,12 @@ const ForgotPassword = () => {
                         )}
 
                         <div className={styles.center}>
-                            <a 
-                                href="/" 
+                            <Link 
+                                to="/" 
                                 className={styles.linkSecondary}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    navigate("/");
-                                }}
                             >
                                 Back to home
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

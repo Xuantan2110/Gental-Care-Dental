@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Star, ChevronLeft, ChevronRight, CheckCircle, Users, Heart, Shield, Award } from 'lucide-react';
 import axios from 'axios';
 import styles from './HomePage.module.css';
@@ -243,16 +243,12 @@ function HomePage() {
                 <img src={AwardIcon} alt="Award icon" className={styles.serviceIcon} />
                 <h3 className={styles.serviceTitle}>{service.type}</h3>
                 <p className={styles.serviceDescription}>{service.desc}</p>
-                <a 
-                  href="/service" 
+                <Link 
+                  to="/service" 
                   className={styles.serviceLink}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate("/service");
-                  }}
                 >
                   Learn More
-                </a>
+                </Link>
               </div>
             ))}
           </div>

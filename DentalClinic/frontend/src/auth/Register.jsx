@@ -4,7 +4,7 @@ import styles from './Register.module.css';
 import axios from 'axios';
 import { notification } from 'antd';
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Register() {
     const [api, contextHolder] = notification.useNotification();
@@ -17,7 +17,6 @@ function Register() {
         address: '',
     });
     const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
     
     const openNotification = (type, detailMessage = "") => {
         if (type === "success") {
@@ -276,16 +275,12 @@ function Register() {
                     <div className={styles.loginSection}>
                         <p className={styles.loginText}>
                             Already have an account?{' '}
-                            <a 
-                                href="/" 
+                            <Link 
+                                to="/" 
                                 className={styles.loginLink}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    navigate("/");
-                                }}
                             >
                                 Sign in now
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>
