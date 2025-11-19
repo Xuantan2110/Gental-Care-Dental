@@ -9,9 +9,12 @@ let ioInstance = null;
 function initSocket(server) {
   const io = new Server(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: [
+        "http://localhost:3000",
+        "https://gental-care-dental-1.onrender.com",
+      ],
       methods: ["GET", "POST"],
-      credentials: true
+      credentials: true,
     },
   });
 
