@@ -148,7 +148,7 @@ function UpdateService({ isOpenUpdate, onClose, onSuccess, service, openNotifica
                   id="price"
                   type="number"
                   min="0"
-                  step="100000"
+                  step="any"
                   value={formData.price || ""}
                   onChange={(e) => handleInputChange("price", Number.parseFloat(e.target.value) || 0)}
                   placeholder="0"
