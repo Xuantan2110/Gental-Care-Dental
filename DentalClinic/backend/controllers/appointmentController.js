@@ -535,66 +535,66 @@ const appointmentController = {
                 console.error('Error creating notification for appointment confirmation:', notifError);
             }
             
-            const customer = await User.findById(appointment.customerId);
-            const dentist = await User.findById(appointment.dentistId);
-            const serviceNames = appointment.service?.map(s => s.name).join(', ') || '';
-            if (customer && customer.email) {
-                const mailOptions = {
-                    from: `"Gentle Care Dental" <${process.env.EMAIL_USER}>`,
-                    to: customer.email,
-                    subject: 'Appointment Confirmed',
-                    html: `
-                    <div style="font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; padding: 30px;">
-                    <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            // const customer = await User.findById(appointment.customerId);
+            // const dentist = await User.findById(appointment.dentistId);
+            // const serviceNames = appointment.service?.map(s => s.name).join(', ') || '';
+            // if (customer && customer.email) {
+            //     const mailOptions = {
+            //         from: `"Gentle Care Dental" <${process.env.EMAIL_USER}>`,
+            //         to: customer.email,
+            //         subject: 'Appointment Confirmed',
+            //         html: `
+            //         <div style="font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; padding: 30px;">
+            //         <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
 
-                        <!-- Header -->
-                        <div style="background-color: #0077cc; color: white; padding: 40px 20px; text-align: center;">
-                        <h2 style="margin: 0;">Your appointment has been confirmed</h2>
-                        </div>
+            //             <!-- Header -->
+            //             <div style="background-color: #0077cc; color: white; padding: 40px 20px; text-align: center;">
+            //             <h2 style="margin: 0;">Your appointment has been confirmed</h2>
+            //             </div>
 
-                        <!-- Body -->
-                        <div style="padding: 30px; color: #333;">
-                        <p>Hi <strong>${customer.fullName}</strong>,</p>
-                        <p>Thank you for using Gentle Care Dental services! Below are your appointment details:</p>
+            //             <!-- Body -->
+            //             <div style="padding: 30px; color: #333;">
+            //             <p>Hi <strong>${customer.fullName}</strong>,</p>
+            //             <p>Thank you for using Gentle Care Dental services! Below are your appointment details:</p>
 
-                        <table style="width: 100%; margin: 20px 0;">
-                            <tr>
-                            <td style="padding: 8px 0;"><strong>Date:</strong></td>
-                            <td>${ensureYMD_VN(appointment.date)}</td>
-                            </tr>
-                            <tr>
-                            <td style="padding: 8px 0;"><strong>Time start:</strong></td>
-                            <td>${toHHMM_VN(appointment.startTime)}</td>
-                            </tr>
-                            <tr>
-                            <td style="padding: 8px 0;"><strong>Dentist:</strong></td>
-                            <td>${dentist.fullName}</td>
-                            </tr>
-                            <tr>
-                            <td style="padding: 8px 0;"><strong>Services:</strong></td>
-                            <td>${serviceNames}</td>
-                            </tr>
-                        </table>
+            //             <table style="width: 100%; margin: 20px 0;">
+            //                 <tr>
+            //                 <td style="padding: 8px 0;"><strong>Date:</strong></td>
+            //                 <td>${ensureYMD_VN(appointment.date)}</td>
+            //                 </tr>
+            //                 <tr>
+            //                 <td style="padding: 8px 0;"><strong>Time start:</strong></td>
+            //                 <td>${toHHMM_VN(appointment.startTime)}</td>
+            //                 </tr>
+            //                 <tr>
+            //                 <td style="padding: 8px 0;"><strong>Dentist:</strong></td>
+            //                 <td>${dentist.fullName}</td>
+            //                 </tr>
+            //                 <tr>
+            //                 <td style="padding: 8px 0;"><strong>Services:</strong></td>
+            //                 <td>${serviceNames}</td>
+            //                 </tr>
+            //             </table>
 
-                        <p style="margin-top: 20px;">Please be at our dental office by ${toHHMM_VN(appointment.startTime)} so that the work can be done on time.
-                        If you have any questions about your appointment, please call us directly at: 0909 999 999</p>
-                        </div>
+            //             <p style="margin-top: 20px;">Please be at our dental office by ${toHHMM_VN(appointment.startTime)} so that the work can be done on time.
+            //             If you have any questions about your appointment, please call us directly at: 0909 999 999</p>
+            //             </div>
 
-                        <!-- Footer -->
-                        <div style="background-color: #f0f0f0; color: #777; text-align: center; padding: 15px; font-size: 13px;">
-                        &copy; 2025 Gentle Care Dental. All rights reserved.<br/>
-                        Ha Noi, Viet Nam
-                        </div>
-                    </div>
-                    </div>
-                `
-                };
-                transporter.sendMail(mailOptions, (error) => {
-                    if (error) {
-                        console.error('Error sending confirmation email:', error);
-                    }
-                });
-            }
+            //             <!-- Footer -->
+            //             <div style="background-color: #f0f0f0; color: #777; text-align: center; padding: 15px; font-size: 13px;">
+            //             &copy; 2025 Gentle Care Dental. All rights reserved.<br/>
+            //             Ha Noi, Viet Nam
+            //             </div>
+            //         </div>
+            //         </div>
+            //     `
+            //     };
+            //     transporter.sendMail(mailOptions, (error) => {
+            //         if (error) {
+            //             console.error('Error sending confirmation email:', error);
+            //         }
+            //     });
+            // }
             return res.status(200).json({ message: 'Appointment confirmed successfully', appointment });
         } catch (error) {
             console.error('Error confirming appointment:', error);
@@ -649,67 +649,67 @@ const appointmentController = {
                 console.error('Error creating notification for appointment rejection:', notifError);
             }
             
-            const customer = await User.findById(appointment.customerId);
-            const dentist = await User.findById(appointment.dentistId);
-            const serviceNames = appointment.service?.map(s => s.name).join(', ') || '';
-            const rejectReason = appointment.decision?.rejectReason || 'No reason provided';
-            if (customer && customer.email) {
-                const mailOptions = {
-                    from: `"Gentle Care Dental" <${process.env.EMAIL_USER}>`,
-                    to: customer.email,
-                    subject: 'Appointment rejected',
-                    html: `
-                    <div style="font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; padding: 30px;">
-                    <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            // const customer = await User.findById(appointment.customerId);
+            // const dentist = await User.findById(appointment.dentistId);
+            // const serviceNames = appointment.service?.map(s => s.name).join(', ') || '';
+            // const rejectReason = appointment.decision?.rejectReason || 'No reason provided';
+            // if (customer && customer.email) {
+            //     const mailOptions = {
+            //         from: `"Gentle Care Dental" <${process.env.EMAIL_USER}>`,
+            //         to: customer.email,
+            //         subject: 'Appointment rejected',
+            //         html: `
+            //         <div style="font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; padding: 30px;">
+            //         <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
 
-                        <!-- Header -->
-                        <div style="background-color: #0077cc; color: white; padding: 40px 20px; text-align: center;">
-                        <h2 style="margin: 0;">Your appointment has been rejected</h2>
-                        </div>
+            //             <!-- Header -->
+            //             <div style="background-color: #0077cc; color: white; padding: 40px 20px; text-align: center;">
+            //             <h2 style="margin: 0;">Your appointment has been rejected</h2>
+            //             </div>
 
-                        <!-- Body -->
-                        <div style="padding: 30px; color: #333;">
-                        <p>Hi <strong>${customer.fullName}</strong>,</p>
-                        <p>Thank you for using Gentle Care Dental services! Sorry, we cannot take this appointment</p>
+            //             <!-- Body -->
+            //             <div style="padding: 30px; color: #333;">
+            //             <p>Hi <strong>${customer.fullName}</strong>,</p>
+            //             <p>Thank you for using Gentle Care Dental services! Sorry, we cannot take this appointment</p>
 
-                        <table style="width: 100%; margin: 20px 0;">
-                            <tr>
-                            <td style="padding: 8px 0;"><strong>Date:</strong></td>
-                            <td>${ensureYMD_VN(appointment.date)}</td>
-                            </tr>
-                            <tr>
-                            <td style="padding: 8px 0;"><strong>Time start:</strong></td>
-                            <td>${toHHMM_VN(appointment.startTime)}</td>
-                            </tr>
-                            <tr>
-                            <td style="padding: 8px 0;"><strong>Dentist:</strong></td>
-                            <td>${dentist.fullName}</td>
-                            </tr>
-                            <tr>
-                            <td style="padding: 8px 0;"><strong>Services:</strong></td>
-                            <td>${serviceNames}</td>
-                            </tr>
-                        </table>
+            //             <table style="width: 100%; margin: 20px 0;">
+            //                 <tr>
+            //                 <td style="padding: 8px 0;"><strong>Date:</strong></td>
+            //                 <td>${ensureYMD_VN(appointment.date)}</td>
+            //                 </tr>
+            //                 <tr>
+            //                 <td style="padding: 8px 0;"><strong>Time start:</strong></td>
+            //                 <td>${toHHMM_VN(appointment.startTime)}</td>
+            //                 </tr>
+            //                 <tr>
+            //                 <td style="padding: 8px 0;"><strong>Dentist:</strong></td>
+            //                 <td>${dentist.fullName}</td>
+            //                 </tr>
+            //                 <tr>
+            //                 <td style="padding: 8px 0;"><strong>Services:</strong></td>
+            //                 <td>${serviceNames}</td>
+            //                 </tr>
+            //             </table>
 
-                        <p style="margin-top: 20px;">Because: ${rejectReason}, we have to reject this appointment. We are sorry for the inconvenience. 
-                        If you have any questions about your appointment, please call us directly at: 0909 999 999</p>
-                        </div>
+            //             <p style="margin-top: 20px;">Because: ${rejectReason}, we have to reject this appointment. We are sorry for the inconvenience. 
+            //             If you have any questions about your appointment, please call us directly at: 0909 999 999</p>
+            //             </div>
 
-                        <!-- Footer -->
-                        <div style="background-color: #f0f0f0; color: #777; text-align: center; padding: 15px; font-size: 13px;">
-                        &copy; 2025 Gentle Care Dental. All rights reserved.<br/>
-                        Ha Noi, Viet Nam
-                        </div>
-                    </div>
-                    </div>
-                `,
-                };
-                transporter.sendMail(mailOptions, (error) => {
-                    if (error) {
-                        console.error('Error sending rejection email:', error);
-                    }
-                });
-            }
+            //             <!-- Footer -->
+            //             <div style="background-color: #f0f0f0; color: #777; text-align: center; padding: 15px; font-size: 13px;">
+            //             &copy; 2025 Gentle Care Dental. All rights reserved.<br/>
+            //             Ha Noi, Viet Nam
+            //             </div>
+            //         </div>
+            //         </div>
+            //     `,
+            //     };
+            //     transporter.sendMail(mailOptions, (error) => {
+            //         if (error) {
+            //             console.error('Error sending rejection email:', error);
+            //         }
+            //     });
+            // }
             return res.status(200).json({ message: 'Appointment rejected successfully', appointment });
         } catch (error) {
             console.error('Error rejecting appointment:', error);
